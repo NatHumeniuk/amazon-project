@@ -89,7 +89,7 @@ body {
   width: 100px;
   margin-top: 5px;
 }
-.logo--mobile-img {
+.logo-mobile-img {
   display: none;
 }
 
@@ -97,7 +97,7 @@ body {
   .header-logo-img {
     display: none;
   }
-  .logo--mobile-img {
+  .logo-mobile-img {
     display: block;
     height: 35px;
     margin-top: 5px;
