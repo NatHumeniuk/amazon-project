@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/orders.css" />
   </head>
   <body>
     <header class="header">
@@ -56,61 +57,61 @@
         </div>
       </div>
     </header>
-    <main>
-      <section class="products">
-        <div class="container">
-          <h2 class="visually-hidden">Products</h2>
-          <div class="products-grid">
-            <div class="product-wrap">
-              <div class="img-wrapper">
+    <main class="orders-main">
+      <div class="orders-container">
+        <h2 class="orders-page-title">Your Orders</h2>
+        <div class="orders-grid">
+          <div class="order-container">
+            <div class="order-header">
+              <div class="order-left-section">
+                <div class="order-date-wrapper">
+                  <div class="order-date-label">Order Placed:</div>
+                  <div class="order-date">August 12</div>
+                </div>
+                <div class="order-sum-wrapper">
+                  <div class="order-sum-label">Total:</div>
+                  <div class="order-sum">$35.06</div>
+                </div>
+              </div>
+              <div class="order-right-section">
+                <div class="order-number-label">Order ID:</div>
+                <div class="order-number">
+                  27cba69d-4c3d-4098-b42d-ac7fa62b7664
+                </div>
+              </div>
+            </div>
+            <div class="order-details-grid">
+              <div class="order-img-wrapper">
                 <img
                   src="./images/products/athletic-cotton-socks-6-pairs.jpg"
-                  alt="Cotton socks"
-                  class="product-img"
+                  alt="Athletic cotton socks"
+                  class="img-product"
                 />
               </div>
-
-              <div class="product-name-wrapper">
-                Black and Gray Athletic Cotton Socks - 6 Pairs
+              <div class="product-ditails">
+                <div class="product-name">
+                  Black and Gray Athletic Cotton Socks - 6 Pairs
+                </div>
+                <div class="product-delivery-date">Arriving on: August 15</div>
+                <div class="product-quantity">Quantity: 1</div>
+                <button class="buy-again-btn">
+                  <img
+                    src="./images/icons/buy-again.png"
+                    alt="Buy again icon"
+                    class="buy-again-icon"
+                  />
+                  <span class="buy-again-text">Buy it again</span>
+                </button>
               </div>
-
-              <div class="rating-wrapper">
-                <img
-                  src="./images/ratings/rating-45.png"
-                  alt="Rating stars"
-                  class="rating-stars-img"
-                />
-
-                <div class="rating-count">87</div>
+              <div class="product-actions">
+                <a href="">
+                  <button class="track-btn">Track package</button>
+                </a>
               </div>
-              <div class="product-price">$10.90</div>
-              <div class="product-quantity-wrapper">
-                <select class="select-quantity">
-                  <option selected value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-              </div>
-              <div class="added-to-cart">
-                <img
-                  src="./images/icons/checkmark.png"
-                  class="checkmark-icon"
-                />
-                Added
-              </div>
-              <button class="added-to-cart-btn">Add to cart</button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
-    <script src="./js/index.js"></script>
   </body>
 </html>
