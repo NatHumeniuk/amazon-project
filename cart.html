@@ -42,59 +42,7 @@
       <div class="cart-container">
         <h2 class="page-title">Review your order</h2>
         <div class="checkout-grid">
-          <div class="order-wrapper">
-            <div class="item-wrapper">
-              <div class="delivery-date-title">
-                Delivery date: <span>Tuesday, June 21</span>
-              </div>
-              <div class="item-details-grid">
-                <img
-                  src="./images/products/athletic-cotton-socks-6-pairs.jpg"
-                  alt="Product image"
-                  class="product-img"
-                />
-
-                <div class="item-ditails-wrapper">
-                  <div class="product-name">
-                    Black and Gray Athletic Cotton Socks - 6 Pairs
-                  </div>
-                  <div class="product-price">$10.90</div>
-                  <div class="product-quantity">
-                    <span
-                      >Quantity:
-                      <span class="quantity-counter">2</span>
-                      <span class="upd-quantity-link">Update</span>
-                      <span class="delete-quantity-link">Delete</span>
-                    </span>
-                  </div>
-                </div>
-                <div class="delivery-options">
-                  <div class="delivery-title">Choose a delivery option:</div>
-                  <div class="delivery-option">
-                    <input type="radio" class="delivery-input" />
-                    <div>
-                      <div class="delivery-date">Tuesday, June 21</div>
-                      <div class="delivery-price">FREE Shipping</div>
-                    </div>
-                  </div>
-                  <div class="delivery-option">
-                    <input type="radio" class="delivery-input" />
-                    <div>
-                      <div class="delivery-date">Wednesday, June 15</div>
-                      <div class="delivery-price">$4.99 - Shipping</div>
-                    </div>
-                  </div>
-                  <div class="delivery-option">
-                    <input type="radio" class="delivery-input" />
-                    <div>
-                      <div class="delivery-date">Monday, June 13</div>
-                      <div class="delivery-price">$9.99 - Shipping</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="order-wrapper js-order-summary"></div>
 
           <div class="payment-summary-wrapper">
             <div class="payment-title">Order Summary</div>
@@ -126,5 +74,6 @@
         </div>
       </div>
     </main>
+    <script type="module" src="./scripts/cart.js"></script>
   </body>
 </html>
