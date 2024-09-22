@@ -31,7 +31,11 @@
           </a>
         </div>
         <div class="header-text-checkout">
-          Checkout (<a class="return-home-link" href="./index.html">3 items</a>)
+          Checkout (<a
+            class="return-home-link js-return-home-link"
+            href="./index.html"
+          ></a
+          >)
         </div>
         <div class="lock-wrap">
           <img src="./images/icons/checkout-lock-icon.png" alt="Lock icon" />
@@ -44,36 +48,11 @@
         <div class="checkout-grid">
           <div class="order-wrapper js-order-summary"></div>
 
-          <div class="payment-summary-wrapper">
-            <div class="payment-title">Order Summary</div>
-            <div class="payment-summary-row">
-              <div>Items (3):</div>
-              <div class="payment-summary-money">$42.75</div>
-            </div>
-            <div class="payment-summary-row">
-              <div>Shipping &amp; handling:</div>
-              <div class="payment-summary-money">$4.99</div>
-            </div>
-
-            <div class="payment-summary-row subtotal-row">
-              <div>Total before tax:</div>
-              <div class="payment-summary-money">$47.74</div>
-            </div>
-
-            <div class="payment-summary-row">
-              <div>Estimated tax (10%):</div>
-              <div class="payment-summary-money">$4.77</div>
-            </div>
-
-            <div class="payment-summary-row total-row">
-              <div>Order total:</div>
-              <div class="payment-summary-money">$52.51</div>
-            </div>
-            <button class="place-order-btn">Place your order</button>
-          </div>
+          <div class="payment-summary-wrapper js-payment-summary"></div>
         </div>
       </div>
     </main>
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
     <script type="module" src="./scripts/cart.js"></script>
   </body>
 </html>

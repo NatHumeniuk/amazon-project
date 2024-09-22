@@ -139,11 +139,47 @@
   color: #017cb6;
   cursor: pointer;
 }
+
+.quatity-input {
+  font-family: Roboto, Arial;
+  font-size: 16px;
+  width: 50px;
+  display: none;
+}
+.quatity-input:is(:hover, :focus) {
+  outline: 2px solid rgb(255, 153, 0);
+}
+
+.save-quantity-link {
+  margin-left: 3px;
+  color: #017cb6;
+  cursor: pointer;
+  display: none;
+}
 .delete-quantity-link {
   margin-left: 3px;
   color: #017cb6;
   cursor: pointer;
 }
+.upd-quantity-link:is(:hover, :focus),
+.save-quantity-link:is(:hover, :focus),
+.delete-quantity-link:is(:hover, :focus) {
+  color: rgb(196, 80, 0);
+}
+
+.is-upd-quantity .save-quantity-link {
+  display: initial;
+}
+.is-upd-quantity .quatity-input {
+  display: initial;
+}
+.is-upd-quantity .quantity-counter {
+  display: none;
+}
+.is-upd-quantity .upd-quantity-link {
+  display: none;
+}
+
 .delivery-title {
   font-weight: 700;
   margin-bottom: 10px;
