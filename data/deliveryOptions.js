@@ -1,8 +1,3 @@
-function isWeekend(date) {
-  const weekend = date.format("dddd");
-  return weekend === "Saturday" || weekend === "Sanday";
-}
-
 export function getDeliveryOption(deliveryOptionId) {
   let deliveryOption;
 
@@ -11,12 +6,21 @@ export function getDeliveryOption(deliveryOptionId) {
       deliveryOption = option;
     }
   });
-  return deliveryOption || deliveryOptions[0];
+  return deliveryOption;
+}
+
+function isWeekend(date) {
+  const dayOfWeek = date.format("dddd");
+  return dayOfWeek === "Saturday" || dayOfWeek === "Sunday";
 }
 
 export function calculateDeliveryDate(deliveryOption) {
-  const today = dayjs();
-  const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
+  let deliveryDate = dayjs().add(deliveryOption.deliveryDays, "days");
+
+  while (isWeekend(deliveryDate)) {
+    deliveryDate = deliveryDate.add(1, "day");
+  }
+
   const dateString = deliveryDate.format("dddd, MMMM D");
   return dateString;
 }
