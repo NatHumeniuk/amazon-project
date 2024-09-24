@@ -6,7 +6,23 @@ export function getDeliveryOption(deliveryOptionId) {
       deliveryOption = option;
     }
   });
-  return deliveryOption || deliveryOptions[0];
+  return deliveryOption;
+}
+
+function isWeekend(date) {
+  const dayOfWeek = date.format("dddd");
+  return dayOfWeek === "Saturday" || dayOfWeek === "Sunday";
+}
+
+export function calculateDeliveryDate(deliveryOption) {
+  let deliveryDate = dayjs().add(deliveryOption.deliveryDays, "days");
+
+  while (isWeekend(deliveryDate)) {
+    deliveryDate = deliveryDate.add(1, "day");
+  }
+
+  const dateString = deliveryDate.format("dddd, MMMM D");
+  return dateString;
 }
 
 export const deliveryOptions = [
