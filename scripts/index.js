@@ -76,10 +76,32 @@ function updCartQuantity() {
 
 updCartQuantity();
 
+let addedMessageTimeoutId;
+
 document.querySelectorAll(".js-add-to-cart").forEach((btn) => {
   btn.addEventListener("click", () => {
     const { productId } = btn.dataset;
-    addToCart(productId);
+    const quantitySelector = document.querySelector(
+      `.js-quantity-selector-${productId}`
+    );
+
+    const quantitySelected = Number(quantitySelector.value);
+
+    const addedToCartMessage = document.querySelector(
+      `.js-added-cart-message-${productId}`
+    );
+
+    addedToCartMessage.classList.add("is-visible");
+
+    if (addedMessageTimeoutId) {
+      clearTimeout(addedMessageTimeoutId);
+    }
+
+    addedMessageTimeoutId = setTimeout(() => {
+      addedToCartMessage.classList.remove("is-visible");
+    }, 2000);
+
+    addToCart(productId, quantitySelected);
     updCartQuantity();
   });
 });
