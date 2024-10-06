@@ -5,6 +5,7 @@ import {
   deliveryOptions,
   getDeliveryOption,
   calculateDeliveryDate,
+  validDeliveryOption,
 } from "../../data/deliveryOptions.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
 
@@ -85,12 +86,12 @@ export function renderOrderSummary() {
           />
 
           <div class="item-ditails-wrapper">
-            <div class="product-name">
+            <div class="product-name js-product-name-${matchingProduct.id}">
               ${matchingProduct.name}
             </div>
-            <div class="product-price">$${formatCurrency(
-              matchingProduct.priceCents
-            )}
+            <div class="product-price js-product-price-${
+              matchingProduct.id
+            }">$${formatCurrency(matchingProduct.priceCents)}
             </div>
             <div class="product-quantity js-product-quantity-${
               matchingProduct.id
@@ -208,12 +209,16 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
     const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
     deliveryHTML += `
-      <div class="delivery-option js-delivery-option" data-product-id="${
+      <div class="delivery-option js-delivery-option js-delivery-option-${
         matchingProduct.id
-      }" data-delivery-option-id="${deliveryOption.id}">
-        <input type="radio" class="delivery-input" name="delivery-option-${
+      }-${deliveryOption.id}" data-product-id="${
+      matchingProduct.id
+    }" data-delivery-option-id="${deliveryOption.id}">
+        <input type="radio" class="delivery-input js-delivery-input-${
           matchingProduct.id
-        }" ${isChecked ? "checked" : ""}/>
+        }-${deliveryOption.id}" name="delivery-option-${matchingProduct.id}" ${
+      isChecked ? "checked" : ""
+    }/>
         <div>
           <div class="delivery-date">${dateString}
           </div>
@@ -225,7 +230,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
   return deliveryHTML;
 }
 
-function removeFromCart(productId) {
+export function removeFromCart(productId) {
   const newCart = [];
   cart.forEach((cartItem) => {
     if (cartItem.productId !== productId) {
@@ -237,7 +242,7 @@ function removeFromCart(productId) {
   saveToStorage();
 }
 
-function updDeliveryOptions(productId, deliveryOptionId) {
+export function updDeliveryOptions(productId, deliveryOptionId) {
   let matchingItem;
   cart.forEach((cartItem) => {
     if (productId === cartItem.productId) {
@@ -245,6 +250,12 @@ function updDeliveryOptions(productId, deliveryOptionId) {
     }
   });
 
+  if (!matchingItem) {
+    return;
+  }
+  if (!validDeliveryOption(deliveryOptionId)) {
+    return;
+  }
   matchingItem.deliveryOptionId = deliveryOptionId;
   saveToStorage();
 }
