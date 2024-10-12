@@ -23,16 +23,14 @@ products.forEach((product) => {
 
               <div class="rating-wrapper">
                 <img
-                  src="./images/ratings/rating-${product.rating.stars * 10}.png"
+                  src="${product.getStarsUrl()}"
                   alt="Rating stars"
                   class="rating-stars-img"
                 />
 
                 <div class="rating-count">${product.rating.count}</div>
               </div>
-              <div class="product-price">$${formatCurrency(
-                product.priceCents
-              )}</div>
+              <div class="product-price">${product.getPrice()}</div>
               <div class="product-quantity-wrapper">
                 <select class="select-quantity js-quantity-selector-${
                   product.id
