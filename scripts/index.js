@@ -47,6 +47,7 @@ products.forEach((product) => {
                   <option value="10">10</option>
                 </select>
               </div>
+              ${product.exstraInfoHTML()}
               <div class="added-to-cart js-added-cart-message-${product.id} ">
                 <img
                   src="./images/icons/checkmark.png"
